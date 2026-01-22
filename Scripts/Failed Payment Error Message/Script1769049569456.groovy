@@ -16,11 +16,26 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import com.kms.katalon.core.configuration.RunConfiguration
+import com.kms.katalon.core.webui.driver.DriverFactory
 
 // Open web browser and navigate to target URL
 WebUI.openBrowser('')
 
-// URL can be manually changed below. I would like to make this 
+// Force resize browser window for headless run.
+String executionBrowser = DriverFactory.getExecutedBrowser().toString()
+println("--- Verified Browser: " + executionBrowser + " ---")
+
+// Flexible Resizing
+if (executionBrowser.contains('headless')) {
+	println("--- Detected Headless: Forcing Viewport ---")
+	WebUI.setViewPortSize(1920, 1080)
+} else {
+	println("--- Detected GUI: Maximizing ---")
+	WebUI.maximizeWindow()
+}
+
+// URL can be chaned on Profiles
 WebUI.navigateToUrl(GlobalVariable.G_SiteURL)
 
 // Select 7 Days SIM Plan
