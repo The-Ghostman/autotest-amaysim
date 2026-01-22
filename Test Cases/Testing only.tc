@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>For Sandbox testing only. Run with caution.</description>
+   <name>Testing only</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>73101b52-6976-4b5e-8463-4a5f5d1c6cc4</testCaseGuid>
+</TestCaseEntity>
